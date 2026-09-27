@@ -1,14 +1,6 @@
-# Cloudflare Workers 配置
 name = "zjmf-network-api"
 main = "src/index.ts"
 compatibility_date = "2024-09-01"
-type = "javascript"
-automate_chat = true
-
-# 如果要绑定 KV/D1/R2, 在这里加:
-# [[kv_namespaces]]
-# binding = "MY_KV"
-# id = "your-kv-namespace-id"
 
 [vars]
 CLOUD_LAST_VERSION = "3.9.22"
