@@ -341,6 +341,12 @@ async function handle(request: Request): Promise<Response> {
 }
 
 // ==================== Cloudflare Workers 入口 ====================
+// Cloudflare Workers environment types 
+interface Env {
+	CLOUD_LAST_VERSION: string
+	CLOUD_RELEASE_VERSION: string
+	FINANCE_LAST_VERSION: string
+}
 export default {
 	async fetch(request: Request): Promise<Response> {
 		// 健康检查
