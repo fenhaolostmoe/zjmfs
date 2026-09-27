@@ -18,8 +18,8 @@
 #   # 完全离线模式
 #   MIRROR_HOST=mirror.local:8080 ./install.sh
 #
-#   # 从远程源码 (Codeberg) 拉取
-#   SOURCE_URL=https://codeberg.org/fenhaolost/zjmf/raw/main/install-zjmf-cloud_new.go ./install.sh
+#   # 从远程源码拉取 (默认走 GitHub 主仓库)
+#   SOURCE_URL=https://raw.githubusercontent.com/fenhaolostmoe/zjmfs/main/install-zjmf-cloud_new.go ./install.sh
 # ============================================================
 
 set -euo pipefail
