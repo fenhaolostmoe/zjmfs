@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# ⚠️ DEPRECATED: 此脚本已废弃, 指向旧 GitHub 仓库. 请使用 install.sh 或 install-v3.9.22-offline.sh
+# 原 GitHub 仓库已封禁 (2026-09-27). 新版主仓库: https://codeberg.org/fenhaolost/zjmf
+
 # ============================================================
 # ZJMF Cloud · v3.9.22 本地备份版安装脚本
 # ============================================================
