@@ -1,14 +1,41 @@
 {
   "version": "v3.9.22",
-  "captured_at": "2026-09-27T10:00:00Z",
-  "source": "https://mirror.cloud.idcsmart.com",
-  "go_source": "install-zjmf-cloud_new.go",
+  "captured_at": "2026-09-27T10:15:00Z",
+  "source": "http://mirror.cloud.idcsmart.com",
   "files": [
     {
       "path": "cloud/controller/3.9.22/zjmf-ctl.tar.gz",
       "size": 55717526,
       "size_mb": 53.1,
       "md5": "7aca63e6a45dfd78fa3b3cf231de6d5a",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/bin.tar.gz",
+      "size": 2985769,
+      "size_mb": 2.8,
+      "md5": "8b1d028aa9f341ff838cc15077c0b903",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/mariadb-5.5.tar.gz",
+      "size": 309516191,
+      "size_mb": 295.2,
+      "md5": "4f4ccd40d372f5a1f4ed9dfe36bd61b9",
+      "storage": "codeberg-release"
+    },
+    {
+      "path": "cloud/packages/share.tar.gz",
+      "size": 26014,
+      "size_mb": 0.0,
+      "md5": "581b62c2b2e8edc9eb92fef677b31ce9",
+      "storage": "git-repo"
+    },
+    {
+      "path": "cloud/packages/upgrade.tar.gz",
+      "size": 4342379,
+      "size_mb": 4.1,
+      "md5": "b5be7a2013c1994c5aa88f7270880218",
       "storage": "git-lfs"
     },
     {
@@ -117,8 +144,7 @@
       "storage": "codeberg-release"
     }
   ],
-  "total_files": 16,
-  "total_size": 918022221,
-  "total_size_mb": 875.5,
-  "dead_links_notes": "\nSource URLs from install-zjmf-cloud_new.go that returned 404/403 on mirror:\n- cloud/packages/c7/bin.tar.gz\n- cloud/packages/c7/mariadb-5.5.tar.gz\n- cloud/packages/c7/share.tar.gz\n- cloud/packages/c7/upgrade.tar.gz\n- cloud/packages/c7/kernel/5.4.166/kernel-lt-5.4.166-1.el7.elrepo.x86_64.rpm\n- cloud/packages/c8/bin.tar.gz\n- cloud/packages/c8/mariadb-5.5.tar.gz\n- cloud/packages/c8/share.tar.gz\n- cloud/packages/c8/upgrade.tar.gz\n- cloud/dashboard/3.9.22/zjmf-ctl.tar.gz (wrong path \u2014 correct path is controller/3.9.22/)\n- cloud/apps/* directories (flowentryd, tools, updaemon_compute)\nThese files may be generated during install or have been removed from the mirror.\n"
+  "total_files": 20,
+  "total_size": 1234892574,
+  "total_size_mb": 1177.7
 }
