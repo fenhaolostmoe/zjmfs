@@ -1,0 +1,16 @@
+# Cloudflare Workers 配置
+name = "zjmf-network-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+
+# 免费版每天 10 万请求，完全够
+# workers.dev 子域名免费，用户可自定：zjmf-network.<your-subdomain>.workers.dev
+
+[vars]
+# 这些变量可以在 wrangler dashboard 里动态修改，不用重新部署
+CLOUD_LAST_VERSION = "3.9.22"
+CLOUD_RELEASE_VERSION = "3.9.22"
+FINANCE_LAST_VERSION = "3.7.6"
+
+# 如果需要自定义域名，在 Cloudflare Dashboard 添加
+# routes = [{ pattern = "auth.yourdomain.com/*", zone_name = "yourdomain.com" }]
