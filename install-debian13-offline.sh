@@ -22,7 +22,7 @@
 #   - 已有 cloudflare workers 部署好 (见 README)
 #
 # 用法:
-#   wget https://codeberg.org/fenhaolost/zjmf/raw/main/install-debian13-offline.sh \
+#   wget https://raw.githubusercontent.com/fenhaolostmoe/zjmfs/main/install-debian13-offline.sh \
 #     -O install.sh && chmod +x install.sh && ./install.sh
 #
 # 可选参数:
@@ -39,7 +39,11 @@ set -euo pipefail
 # ---------- 配置 ----------
 REPO="fenhaolost/zjmf"
 BRANCH="main"
-RAW_BASE="https://codeberg.org/${REPO}/raw/${BRANCH}"
+# Codeberg 大文件走 LFS: 必须用 /media/branch/ 端点
+# (/raw/ 只会返回 134B 的 LFS 指针, 不是真实文件)
+RAW_BASE="https://codeberg.org/${REPO}/media/branch/${BRANCH}"
+# 安装二进制不在 Codeberg(404), 走 GitHub 主仓库
+SRC_BIN_URL="https://raw.githubusercontent.com/fenhaolostmoe/zjmfs/main/install-zjmf-cloud-debian13"
 DEFAULT_ENDPOINT="zjmf-auth-api.fenhaolost.workers.dev"
 ENDPOINT_HOST="${ENDPOINT_HOST:-$DEFAULT_ENDPOINT}"
 VERSION="${VERSION:-3.9.22}"
@@ -127,11 +131,25 @@ trap cleanup EXIT INT TERM
 # ============================================================
 info "Step 1/7: 下载 Debian 版安装二进制 ..."
 DEB_BIN="$TMPDIR/install-zjmf-cloud-debian13"
+ORIG_MIRROR="http://mirror.cloud.idcsmart.com"
 
-if ! wget -q "${MIRROR_HOST/http:\/\//}/cloud/scripts/install-zjmf-cloud-debian13" -O "$DEB_BIN" 2>/dev/null; then
-  # 从原始 URL 下 (还没被劫持时!)
-  ORIG_MIRROR="http://mirror.cloud.idcsmart.com"
-  wget -q --show-progress "${ORIG_MIRROR}/cloud/scripts/install-zjmf-cloud-debian13" -O "$DEB_BIN"
+# 下载链: 官方 mirror → GitHub 备份 → Codeberg LFS
+if wget -q --show-progress --timeout=25 "${ORIG_MIRROR}/cloud/scripts/install-zjmf-cloud-debian13" -O "$DEB_BIN" 2>/dev/null; then
+  ok "官方 mirror 下载成功"
+elif wget -q --show-progress --timeout=25 "${SRC_BIN_URL}" -O "$DEB_BIN" 2>/dev/null; then
+  ok "GitHub 备份下载成功"
+elif wget -q --show-progress --timeout=25 "${RAW_BASE}/backup/v3.9.22/install-zjmf-cloud-debian13" -O "$DEB_BIN" 2>/dev/null; then
+  ok "Codeberg 备份下载成功"
+else
+  err "安装二进制下载失败 (官方 mirror 和备份都不可达)"
+  exit 1
+fi
+
+# 完整性校验: 真实二进制应 > 1MB, 防止误下到 LFS 指针(134B)或 404 页面
+if [ "$(stat -c%s "$DEB_BIN" 2>/dev/null || echo 0)" -lt 1000000 ]; then
+  err "下载文件异常 (小于 1MB, 疑似 LFS 指针或错误页)"
+  ls -l "$DEB_BIN"; head -c 200 "$DEB_BIN"; echo
+  exit 1
 fi
 chmod +x "$DEB_BIN"
 ok "$(ls -lh "$DEB_BIN" | awk '{print $5}')"
