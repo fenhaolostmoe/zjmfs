@@ -1,9 +1,9 @@
 # ZJMF v3.9.22 Mirror Snapshot
 
-- **Captured**: 2026-09-27T10:15:00Z
+- **Captured**: 2026-09-27T10:25:00Z
 - **Source**: http://mirror.cloud.idcsmart.com
-- **Total files**: 20
-- **Total size**: 1177.7 MB
+- **Total files**: 21
+- **Total size**: 1227.8 MB
 
 | # | Storage | Path | Size | MD5 |
 |---|---------|------|------|-----|
@@ -23,7 +23,8 @@
 | 14 | codeberg-release | `cloud/packages/c7/rpms-master.tar.gz` | 113.0 MB | `ccfcd38256f55ff87adae5257f77110d` |
 | 15 | codeberg-release | `cloud/packages/c7/rpms-nodes.tar.gz` | 107.7 MB | `318cbbdb7c787952d44b837b241ad857` |
 | 16 | git-lfs | `cloud/software/bin/jq` | 3.8 MB | `1fffde9f3c7944f063265e9a5e67ae4f` |
-| 17 | git-lfs | `cloud/dashboard/3.9.22/zjmf-web.tar.gz` | 69.6 MB | `3e87ca8ec354a71bbedfabda5b37f1c9` |
-| 18 | git-lfs | `cloud/compute/3.9.22.tar.gz` | 48.2 MB | `1c4369bed84512e4f79153805a372314` |
-| 19 | git-repo | `cloud/compute/datapath.db` | 0.0 MB | `211ff2339657b5d2e7ba1c7b479241dd` |
-| 20 | codeberg-release | `cloud/docker/zjmf-db.tar.gz` | 109.8 MB | `7d2bda8b057407b7c7199a6e93b7d077` |
+| 17 | git-lfs | `cloud/kernel/5.4.166/kernel-lt-5.4.166-1.el7.elrepo.x86_64.rpm` | 50.2 MB | `7cd99e17ce4261236c95d2444dfb4cfe` |
+| 18 | git-lfs | `cloud/dashboard/3.9.22/zjmf-web.tar.gz` | 69.6 MB | `3e87ca8ec354a71bbedfabda5b37f1c9` |
+| 19 | git-lfs | `cloud/compute/3.9.22.tar.gz` | 48.2 MB | `1c4369bed84512e4f79153805a372314` |
+| 20 | git-repo | `cloud/compute/datapath.db` | 0.0 MB | `211ff2339657b5d2e7ba1c7b479241dd` |
+| 21 | codeberg-release | `cloud/docker/zjmf-db.tar.gz` | 109.8 MB | `7d2bda8b057407b7c7199a6e93b7d077` |

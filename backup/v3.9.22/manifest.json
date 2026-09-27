@@ -1,6 +1,6 @@
 {
   "version": "v3.9.22",
-  "captured_at": "2026-09-27T10:15:00Z",
+  "captured_at": "2026-09-27T10:25:00Z",
   "source": "http://mirror.cloud.idcsmart.com",
   "files": [
     {
@@ -116,6 +116,13 @@
       "storage": "git-lfs"
     },
     {
+      "path": "cloud/kernel/5.4.166/kernel-lt-5.4.166-1.el7.elrepo.x86_64.rpm",
+      "size": 52592544,
+      "size_mb": 50.2,
+      "md5": "7cd99e17ce4261236c95d2444dfb4cfe",
+      "storage": "git-lfs"
+    },
+    {
       "path": "cloud/dashboard/3.9.22/zjmf-web.tar.gz",
       "size": 72950284,
       "size_mb": 69.6,
@@ -144,7 +151,6 @@
       "storage": "codeberg-release"
     }
   ],
-  "total_files": 20,
-  "total_size": 1234892574,
-  "total_size_mb": 1177.7
+  "total_files": 21,
+  "total_size_mb": 1227.8
 }
