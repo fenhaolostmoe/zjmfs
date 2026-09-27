@@ -1,0 +1,101 @@
+{
+  "version": "v3.9.22",
+  "captured_at": "2026-09-27T09:40:00Z",
+  "source": "https://mirror.cloud.idcsmart.com",
+  "files": [
+    {
+      "path": "cloud/packages/c8/python2-packages.tar.gz",
+      "size": 21519250,
+      "size_mb": 20.5,
+      "md5": "c7b0989e6e89721270a8c5d9e3890338",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/c8/python3-packages.tar.gz",
+      "size": 3584070,
+      "size_mb": 3.4,
+      "md5": "164cf2ed95ba4b7e4108af9c8f5bc1e8",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/c8/rpms-docker.tar.gz",
+      "size": 42175837,
+      "size_mb": 40.2,
+      "md5": "6b0fcc89c031e15e9380b86a6ecf4368",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/c8/rpms-master.tar.gz",
+      "size": 151612249,
+      "size_mb": 144.6,
+      "md5": "6f20279bbe7547fc73dd68c5fa1460df",
+      "storage": "codeberg-release"
+    },
+    {
+      "path": "cloud/packages/c8/rpms-nodes.tar.gz",
+      "size": 121840566,
+      "size_mb": 116.2,
+      "md5": "37f71cd4b8c0edfa70d24909c3fd1d62",
+      "storage": "codeberg-release"
+    },
+    {
+      "path": "cloud/packages/c7/python2-packages.tar.gz",
+      "size": 44214,
+      "size_mb": 0.0,
+      "md5": "77cb5222b77e7879f78b2065ea65e0e9",
+      "storage": "git-repo"
+    },
+    {
+      "path": "cloud/packages/c7/python3-packages.tar.gz",
+      "size": 876770,
+      "size_mb": 0.8,
+      "md5": "20d7631d7c1e9b8302b4c2704e0c91af",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/c7/rpms-docker.tar.gz",
+      "size": 46623872,
+      "size_mb": 44.5,
+      "md5": "6f0c2ce0b7aef1dc2cf205a79ed3aa22",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/packages/c7/rpms-master.tar.gz",
+      "size": 118471739,
+      "size_mb": 113.0,
+      "md5": "ccfcd38256f55ff87adae5257f77110d",
+      "storage": "codeberg-release"
+    },
+    {
+      "path": "cloud/packages/c7/rpms-nodes.tar.gz",
+      "size": 112885669,
+      "size_mb": 107.7,
+      "md5": "318cbbdb7c787952d44b837b241ad857",
+      "storage": "codeberg-release"
+    },
+    {
+      "path": "cloud/software/bin/jq",
+      "size": 3953824,
+      "size_mb": 3.8,
+      "md5": "1fffde9f3c7944f063265e9a5e67ae4f",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/dashboard/3.9.22/zjmf-web.tar.gz",
+      "size": 72950284,
+      "size_mb": 69.6,
+      "md5": "3e87ca8ec354a71bbedfabda5b37f1c9",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/docker/zjmf-db.tar.gz",
+      "size": 115178080,
+      "size_mb": 109.8,
+      "md5": "7d2bda8b057407b7c7199a6e93b7d077",
+      "storage": "codeberg-release"
+    }
+  ],
+  "total_files": 13,
+  "total_size": 811716424,
+  "total_size_mb": 774.1
+}
