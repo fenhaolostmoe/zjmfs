@@ -6,15 +6,15 @@
 # 防官方 CDN 下线或更新后 URL 变化
 #
 # 流程:
-#   1. 从 Codeberg 拉 Go 源码 + manifest.json
+#   1. 从 GitHub 拉 Go 源码; 从 Codeberg(/media) 拉 manifest.json
 #   2. sed 替换 endpoint IP + mirror host → 本地 HTTP server
-#   3. 从 Codeberg raw 拉全量 21 个镜像文件到临时目录
+#   3. 从 Codeberg /media/branch/main 拉全量 21 个镜像文件到临时目录
 #   4. 启动 python3 HTTP server 指向本地文件
 #   5. go build 编译并运行安装程序
 #   6. 安装完成后清理临时 server
 #
 # 用法:
-#   wget https://codeberg.org/fenhaolost/zjmf/raw/main/install-v3.9.22-offline.sh \
+#   wget https://raw.githubusercontent.com/fenhaolostmoe/zjmfs/main/install-v3.9.22-offline.sh \
 #     -O install.sh && chmod +x install.sh && ./install.sh
 #
 # 可选参数:
@@ -28,7 +28,11 @@ set -euo pipefail
 # ---------- 配置 ----------
 REPO="fenhaolost/zjmf"
 BRANCH="main"
-RAW_BASE="https://codeberg.org/${REPO}/raw/${BRANCH}"
+# Codeberg 大文件走 LFS: 必须用 /media/branch/ 端点
+# (/raw/ 只会返回 134B 的 LFS 指针, 不是真实文件)
+RAW_BASE="https://codeberg.org/${REPO}/media/branch/${BRANCH}"
+# 安装源码不在 Codeberg(404), 走 GitHub 主仓库
+SRC_GO_URL="https://raw.githubusercontent.com/fenhaolostmoe/zjmfs/main/install-zjmf-cloud_new.go"
 DEFAULT_ENDPOINT="zjmf-auth-api.fenhaolost.workers.dev"
 ENDPOINT_HOST="${ENDPOINT_HOST:-$DEFAULT_ENDPOINT}"
 INSTALL_VERSION="${INSTALL_VERSION:-3.9.22}"
@@ -79,13 +83,13 @@ cleanup() {
 trap cleanup EXIT
 
 # ---------- Step 1: 拉源码 + manifest ----------
-info "Step 1/6: 从 Codeberg 拉源码 ..."
+info "Step 1/6: 拉源码 + manifest ..."
 
 SOURCE_GO="$TMPDIR/install-zjmf-cloud_new.go"
 MANIFEST="$TMPDIR/manifest.json"
 
-if ! wget -q "${RAW_BASE}/install-zjmf-cloud_new.go" -O "$SOURCE_GO"; then
-  err "源码下载失败"
+if ! wget -q "${SRC_GO_URL}" -O "$SOURCE_GO"; then
+  err "源码下载失败: ${SRC_GO_URL}"
   exit 1
 fi
 if ! wget -q "${RAW_BASE}/backup/v3.9.22/manifest.json" -O "$MANIFEST"; then
@@ -208,7 +212,7 @@ info "  → go mod tidy ..."
 go mod tidy 2>&1 | tail -2 || true
 
 info "  → go build ..."
-if ! CGO_ENABLED=1 go build -o install-zjmf-cloud_new.offline -trimpath \
+if ! CGO_ENABLED=0 go build -o install-zjmf-cloud_new.offline -trimpath \
   install-zjmf-cloud_new.go 2>&1 | tail -10; then
   err "Build failed!"; exit 1
 fi
