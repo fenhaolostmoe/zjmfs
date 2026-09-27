@@ -1,8 +1,16 @@
 {
   "version": "v3.9.22",
-  "captured_at": "2026-09-27T09:40:00Z",
+  "captured_at": "2026-09-27T10:00:00Z",
   "source": "https://mirror.cloud.idcsmart.com",
+  "go_source": "install-zjmf-cloud_new.go",
   "files": [
+    {
+      "path": "cloud/controller/3.9.22/zjmf-ctl.tar.gz",
+      "size": 55717526,
+      "size_mb": 53.1,
+      "md5": "7aca63e6a45dfd78fa3b3cf231de6d5a",
+      "storage": "git-lfs"
+    },
     {
       "path": "cloud/packages/c8/python2-packages.tar.gz",
       "size": 21519250,
@@ -88,6 +96,20 @@
       "storage": "git-lfs"
     },
     {
+      "path": "cloud/compute/3.9.22.tar.gz",
+      "size": 50575983,
+      "size_mb": 48.2,
+      "md5": "1c4369bed84512e4f79153805a372314",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "cloud/compute/datapath.db",
+      "size": 12288,
+      "size_mb": 0.0,
+      "md5": "211ff2339657b5d2e7ba1c7b479241dd",
+      "storage": "git-repo"
+    },
+    {
       "path": "cloud/docker/zjmf-db.tar.gz",
       "size": 115178080,
       "size_mb": 109.8,
@@ -95,7 +117,8 @@
       "storage": "codeberg-release"
     }
   ],
-  "total_files": 13,
-  "total_size": 811716424,
-  "total_size_mb": 774.1
+  "total_files": 16,
+  "total_size": 918022221,
+  "total_size_mb": 875.5,
+  "dead_links_notes": "\nSource URLs from install-zjmf-cloud_new.go that returned 404/403 on mirror:\n- cloud/packages/c7/bin.tar.gz\n- cloud/packages/c7/mariadb-5.5.tar.gz\n- cloud/packages/c7/share.tar.gz\n- cloud/packages/c7/upgrade.tar.gz\n- cloud/packages/c7/kernel/5.4.166/kernel-lt-5.4.166-1.el7.elrepo.x86_64.rpm\n- cloud/packages/c8/bin.tar.gz\n- cloud/packages/c8/mariadb-5.5.tar.gz\n- cloud/packages/c8/share.tar.gz\n- cloud/packages/c8/upgrade.tar.gz\n- cloud/dashboard/3.9.22/zjmf-ctl.tar.gz (wrong path \u2014 correct path is controller/3.9.22/)\n- cloud/apps/* directories (flowentryd, tools, updaemon_compute)\nThese files may be generated during install or have been removed from the mirror.\n"
 }
