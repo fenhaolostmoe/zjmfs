@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-# ⚠️ DEPRECATED: 此脚本已废弃, 指向旧 GitHub 仓库. 请使用 install.sh 或 install-v3.9.22-offline.sh
-# 原 GitHub 仓库已封禁 (2026-09-27). 新版主仓库: https://codeberg.org/fenhaolost/zjmf
+# 源码 / 二进制来自主仓库: https://github.com/fenhaolostmoe/zjmfs
+# 注意: 二进制 patch 有长度限制 (原 IP 字段仅 13 字节).
+#       长域名请改用 rebuild.sh 或 install.sh (直接改源码后重编译).
 
 """
 ELF Patch 脚本：替换 Go 安装程序里硬编码的授权 IP
