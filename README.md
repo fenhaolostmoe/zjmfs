@@ -113,9 +113,28 @@ wget https://codeberg.org/fenhaolost/zjmf/raw/main/install.sh \
   -O install.sh && chmod +x install.sh && ./install.sh
 ```
 
+### 方式 C：Debian 13 离线安装（hosts 劫持方案）
+
+Debian 版安装程序（`install-zjmf-cloud-debian13`）的下载 URL 在运行时动态拼接（Go 二进制被 UPX 加壳 + strip，无法用 sed 替换）。所以改用 **`/etc/hosts` + 本地 HTTP server** 方案：
+
+```bash
+wget https://codeberg.org/fenhaolost/zjmf/raw/main/install-debian13-offline.sh \
+  -O install.sh && chmod +x install.sh && sudo ./install.sh
+```
+
+原理：
+1. 下载官方 Debian 版二进制（从 `mirror.cloud.idcsmart.com/cloud/scripts/`）
+2. 从本仓库拉取全量 21 个镜像文件（1.23 GB）
+3. 修改 `/etc/hosts` 把 `mirror.cloud.idcsmart.com` → `127.0.0.1`
+4. 启动 `python3 -m http.server 80` 指向本地备份
+5. 运行 Debian 版安装程序（它访问 `mirror.cloud.idcsmart.com/xxx` 实际打到本地）
+6. 安装完成后自动恢复 `/etc/hosts` + 停止 HTTP server
+
+为什么需要 sudo：修改 `/etc/hosts` 写入权限 + 80 端口需要 root。
+
 ### 自定义 Workers API 地址
 
-两种安装脚本都支持：
+三种安装脚本都支持：
 
 ```bash
 ENDPOINT_HOST=your-workers.workers.dev ./install.sh
