@@ -2,14 +2,14 @@
   "name": "zjmf-registration-api",
   "version": "1.0.0",
   "private": true,
-  "description": "Network protocol compatibility study — Cloudflare Workers static JSON responses.",
+  "description": "Network protocol compatibility study \u2014 Cloudflare Workers static JSON responses.",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "typecheck": "wrangler typecheck"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250109.0",
+    "@cloudflare/workers-types": "^5.20260927.1",
     "typescript": "^5.6.0",
     "wrangler": "^4.141.0"
   }
