@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-# ⚠️ DEPRECATED: 此脚本已废弃, 指向旧 GitHub 仓库. 请使用 install.sh 或 install-v3.9.22-offline.sh
-# 原 GitHub 仓库已封禁 (2026-09-27). 新版主仓库: https://codeberg.org/fenhaolost/zjmf
-
 # ==========================================
 # ZJMF Cloud 安装程序 · 源码修改 + 重编译
 # ==========================================
+# 源码来自主仓库: https://github.com/fenhaolostmoe/zjmfs
+# (源码文件: install-zjmf-cloud_new.go)
+#
 # 用法:
-#   ./scripts/rebuild.sh <你的授权API域名或IP>
-#   ./scripts/rebuild.sh zjmf-auth-api.fenhaolost.workers.dev
+#   ./rebuild.sh <你的授权API域名或IP>
+#   ./rebuild.sh zjmf-auth-api.fenhaolost.workers.dev
 # ==========================================
 
 set -e
@@ -50,8 +50,8 @@ echo ""
 echo "[编译] Go build ..."
 cd "$REPO_DIR"
 
-# CGO_ENABLED=1 因为原程序也启用了 CGO（链接 libresolv）
-CGO_ENABLED=1 go build -o "$OUT" -trimpath ./install-zjmf-cloud_new.go
+# CGO_ENABLED=0 → 静态二进制, 目标机无需 gcc / libc 头文件
+CGO_ENABLED=0 go build -o "$OUT" -trimpath ./install-zjmf-cloud_new.go
 
 echo ""
 echo "[验证] 检查新二进制 ..."
